@@ -17,8 +17,12 @@ public class StoryManager : MonoBehaviour
     private StoryCanvas _activeStory;
     private int storyIndex = 0;
 
+    public static StoryManager Instance;
+
     private void Start()
     {
+        Instance = this;
+
         _progressStorryAction.Enable();
         _progressStorryAction.performed += ProgressStorry;
 
