@@ -48,4 +48,9 @@ public class StoryManager : MonoBehaviour
         _gameCanvas.SetActive(true);
     }
 
+    private void OnDestroy()
+    {
+        _progressStorryAction.performed -= ProgressStorry;
+    }
+
 }
