@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 690876550}
   - component: {fileID: 690876553}
   - component: {fileID: 690876552}
-  - component: {fileID: 690876551}
+  - component: {fileID: 5312050394594396584}
   m_Layer: 5
   m_Name: PanelTwo
   m_TagString: Untagged
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &690876551
+--- !u!114 &5312050394594396584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,9 +428,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 690876549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f405dd4cc2944d44b581044bdb73a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ad48996a38882c41a44b093c3c3e31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1851956962}
 --- !u!1 &910839823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1226,7 @@ GameObject:
   - component: {fileID: 9110072712482909632}
   - component: {fileID: 260632283095431544}
   - component: {fileID: 3443238773468284095}
-  - component: {fileID: 937131075516325470}
+  - component: {fileID: 8250851497590437063}
   m_Layer: 5
   m_Name: PanelThree
   m_TagString: Untagged
@@ -1293,7 +1294,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &937131075516325470
+--- !u!114 &8250851497590437063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1302,7 +1303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1747212722107396221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f405dd4cc2944d44b581044bdb73a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b912f48ffa5d0749bd3ae7aff094d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2635594335875986505
@@ -1359,8 +1360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storyPanels:
   - {fileID: 1057108271}
-  - {fileID: 690876551}
-  - {fileID: 937131075516325470}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3411619806335387161
 GameObject:
   m_ObjectHideFlags: 0

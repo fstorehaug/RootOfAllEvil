@@ -13,7 +13,7 @@ namespace DefaultNamespace
         [SerializeField]
         private int scoreIncrement = 1;
         public static string Name { get; private set; }
-
+        public static string WrongName { get; private set; }
         public int Score => score;
 
         private void Start()
@@ -35,5 +35,11 @@ namespace DefaultNamespace
         {
             Name = name;
         }
+
+        public static void SetWrongName(string wrongName)
+        {
+            WrongName = wrongName;
+        }
+
     }
 }
