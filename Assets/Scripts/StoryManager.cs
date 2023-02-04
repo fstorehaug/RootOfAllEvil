@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class StoryManager : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject _gameCanvas;
+
+    [SerializeField]
+    private StoryCanvas[] _storyCanvases;
+
+    [SerializeField]
+    public InputAction _progressStorryAction;
+
+    private StoryCanvas _activeStory;
+    private int storyIndex = 0;
+
+    private void Start()
+    {
+        _progressStorryAction.Enable();
+        _progressStorryAction.performed += ProgressStorry;
+
+        RunNextStorry();
+    }
+
+    public void RunNextStorry()
+    {
+        _gameCanvas.SetActive(false);
+        _activeStory = _storyCanvases[storyIndex++];
+        _activeStory.RunStory();
+        _activeStory.OnStorryCompleete += OnStoryComplete;
+    }
+
+    public void ProgressStorry(InputAction.CallbackContext context)
+    {
+        _activeStory.ProgresStory();
+    }
+
+    public void OnStoryComplete()
+    {
+
+    }
+
+}
