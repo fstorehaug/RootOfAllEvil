@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853878303}
   - component: {fileID: 853878302}
+  - component: {fileID: 853878304}
   m_Layer: 0
   m_Name: GameContext
   m_TagString: Untagged
@@ -279,6 +280,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853878304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853878301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f53e4498504ce09547a4997b02e290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItems:
+  - cost: 100
+    name: Buff X2
+    description: Doubles soul energy gained
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 853878302}
+          m_TargetAssemblyTypeName: DefaultNamespace.GameEngine, Assembly-CSharp
+          m_MethodName: SetIncrement
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+  - cost: 10000
+    name: Buff x3
+    description: Triples soul energy gained
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 853878302}
+          m_TargetAssemblyTypeName: DefaultNamespace.GameEngine, Assembly-CSharp
+          m_MethodName: MakeMultiplier
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+  - cost: 20000
+    name: Needle gun
+    description: Minigun your target with needles
+    onBuy:
+      m_PersistentCalls:
+        m_Calls: []
+    isEnabled: 1
+  - cost: 25000
+    name: Shneedle gun
+    description: Shotguns multiple needles at the same time
+    onBuy:
+      m_PersistentCalls:
+        m_Calls: []
+    isEnabled: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +828,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1875673340}
     m_Modifications:
+    - target: {fileID: 578227735079304602, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578227735079304602, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282767131430093998, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282767131430093998, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282767131430093998, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577543628181707768, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577543628181707768, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100.00007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674100192864264391, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926260010436653615, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926260010436653615, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827676950430429313, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8707438811678511084, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
       propertyPath: m_Pivot.x
       value: 0

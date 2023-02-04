@@ -1,10 +1,9 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class UIHandler : MonoBehaviour
+    public class UIScoreHandler : MonoBehaviour
     {
         [SerializeField]
         private TextMeshProUGUI scoreText;
@@ -14,7 +13,7 @@ namespace DefaultNamespace
         
         private void Update()
         {
-            scoreText.SetText($"Score {gameEngine.Score}");
+            scoreText.SetText($"Soul Energy : {gameEngine.Score}");
         }
     }
 }

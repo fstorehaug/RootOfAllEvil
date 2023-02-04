@@ -29,6 +29,23 @@ namespace DefaultNamespace
         
         private void OnEnable() => StartCoroutine( StartFade());
 
+        private void Update()
+        {
+            if (isFading)
+            {
+                return;
+            }
+
+            transform.position = Vector3.Lerp(transform.position, targetPosition, step * Time.deltaTime);
+            
+            if (needleImage.fillAmount <= deadProgress)
+            {
+                return;
+            }
+            
+            needleImage.fillAmount = Mathf.MoveTowards(needleImage.fillAmount, 0, progressSpeed * Time.deltaTime);;
+        }
+        
         private IEnumerator StartFade()
         {
             yield return new WaitForSeconds(fadeTimeDelaySeconds);
@@ -51,23 +68,6 @@ namespace DefaultNamespace
             gameObject.SetActive(false);
             color.a = 1f;
             needleImage.color = color;
-        }
-
-        private void Update()
-        {
-            if (isFading)
-            {
-                return;
-            }
-
-            transform.position = Vector3.Lerp(transform.position, targetPosition, step * Time.deltaTime);
-            
-            if (needleImage.fillAmount <= deadProgress)
-            {
-                return;
-            }
-            
-            needleImage.fillAmount = Mathf.MoveTowards(needleImage.fillAmount, 0, progressSpeed * Time.deltaTime);;
         }
         
         public void SetTargetPosition(Vector3 targetPosition) => this.targetPosition = targetPosition;

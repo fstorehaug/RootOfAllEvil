@@ -12,9 +12,21 @@ namespace DefaultNamespace
         [Min(1)]
         [SerializeField]
         private int scoreIncrement = 1;
+
+        [SerializeField]
+        private int fireRate;
+
+        [SerializeField] private bool isShotgunMode;
+        [SerializeField] private bool isMinigunMode;
         
         public int Score => score;
 
+        public bool IsShotgunMode => isShotgunMode;
+
+        public bool IsMinigunMode => isMinigunMode;
+
+        public int FireRate => fireRate;
+        
         private void Start()
         {
             DontDestroyOnLoad(this);
@@ -28,6 +40,11 @@ namespace DefaultNamespace
         public void SetIncrement(int scoreIncrement)
         {
             this.scoreIncrement = scoreIncrement;
+        }
+        
+        public void MakeMultiplier(int multiplier)
+        {
+            this.scoreIncrement *= multiplier;
         }
     }
 }
