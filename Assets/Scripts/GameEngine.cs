@@ -13,7 +13,7 @@ namespace DefaultNamespace
         [SerializeField]
         private int scoreIncrement = 1;
         public static string Name { get; private set; }
-
+        public static string WrongName { get; private set; }
         [SerializeField]
         private int fireRate = 10;
 
@@ -80,5 +80,11 @@ namespace DefaultNamespace
             score -= price;
             return true;
         }
+
+        public static void SetWrongName(string wrongName)
+        {
+            WrongName = wrongName;
+        }
+
     }
 }
