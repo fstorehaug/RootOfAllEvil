@@ -12,6 +12,7 @@ namespace DefaultNamespace
         [Min(1)]
         [SerializeField]
         private int scoreIncrement = 1;
+        public static string Name { get; private set; }
 
         [SerializeField]
         private int fireRate;
@@ -41,10 +42,15 @@ namespace DefaultNamespace
         {
             this.scoreIncrement = scoreIncrement;
         }
-        
+
         public void MakeMultiplier(int multiplier)
         {
             this.scoreIncrement *= multiplier;
+        }
+
+        public static void SetName(string name)
+        {
+            Name = name;
         }
     }
 }
