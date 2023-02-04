@@ -45,6 +45,7 @@ public class StoryManager : MonoBehaviour
     public void OnStoryComplete()
     {
         this.gameObject.SetActive(false);
+        _progressStorryAction.performed -= ProgressStorry;
         _gameCanvas.SetActive(true);
     }
 

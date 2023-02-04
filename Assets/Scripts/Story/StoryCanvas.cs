@@ -24,7 +24,6 @@ public class StoryCanvas : MonoBehaviour
             if (_storyIndex >= _storyPanels.Length)
             {
                 OnStorryEnd();
-                return;
             }
 
             RunStoryPanel(_storyIndex);
