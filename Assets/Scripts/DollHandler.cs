@@ -11,7 +11,7 @@ public class DollHandler : MonoBehaviour
     private GameEngine gameEngine;
 
     [SerializeField]
-    private float alphaTreshold;
+    private float hitTestAlphaTreshold;
 
     [SerializeField]
     private GameObject needlePrefab;
@@ -23,7 +23,6 @@ public class DollHandler : MonoBehaviour
     private Image buttonImage;
     private Vector2 dollPosition;
     
-
     private void Start()
     {
         buttonImage = GetComponent<Image>();
@@ -35,7 +34,7 @@ public class DollHandler : MonoBehaviour
 
     private void Update()
     {
-        buttonImage.alphaHitTestMinimumThreshold = alphaTreshold;
+        buttonImage.alphaHitTestMinimumThreshold = hitTestAlphaTreshold;
     }
 
     private GameObject CreateNeedle() => Instantiate(needlePrefab, transform.parent); 
@@ -49,6 +48,7 @@ public class DollHandler : MonoBehaviour
 
         var needleVector = mousePosition - dollPosition;
         newNeedle.transform.right = needleVector;
+        newNeedle.transform.position = mousePosition + (needleStartOffset * needleVector);
         newNeedle.GetComponent<NeedleHandler>().SetTargetPosition(mousePosition);
     }
 }
