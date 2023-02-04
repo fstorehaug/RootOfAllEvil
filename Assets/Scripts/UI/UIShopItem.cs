@@ -26,7 +26,7 @@ namespace DefaultNamespace
         [SerializeField]
         private Color unavailableMaterial;
 
-        private bool isAvailbale;
+        private bool isAvailbale = true;
         
         public void SetDataContext(ShopItem shopItem)
         {
@@ -52,6 +52,7 @@ namespace DefaultNamespace
         private void Update()
         {
             IsAvailable = dataContext.IsAvailable;
+            costText.SetText(dataContext.Cost.ToString());
             
             if (dataContext.IsBought)
             {

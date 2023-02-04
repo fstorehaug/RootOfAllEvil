@@ -286,7 +286,9 @@ MonoBehaviour:
   gameEngine: {fileID: 0}
   hitTestAlphaTreshold: 0.8
   needlePrefab: {fileID: 5311358447436607236, guid: a035af74e75ff44cbb2471ea1584f906, type: 3}
-  needleStartOffset: 200
+  needleStartOffset: 400
+  minigunDelay: 0.5
+  gunDisperse: 30
 --- !u!114 &8779261393816471685
 MonoBehaviour:
   m_ObjectHideFlags: 0

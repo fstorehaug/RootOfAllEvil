@@ -93,19 +93,16 @@ public class DollHandler : MonoBehaviour
 
     private void ShotgunNeedles(Vector2 mousePos)
     {
-        StartCoroutine( SpawnMultipleNeedles(0.001f, gameEngine.ShotgunNeedlesCount, mousePos));
+        StartCoroutine( SpawnMultipleNeedles(0.001f, gameEngine.ShotgunNeedlesCount, mousePos, gunDisperse * 2));
     }
     
-    private void ShotgunNeedles()
-    {
-        StartCoroutine( SpawnMultipleNeedles(0.001f, gameEngine.ShotgunNeedlesCount, MousePosition));
-    }
+    private void ShotgunNeedles() => ShotgunNeedles(MousePosition);
 
-    private IEnumerator SpawnMultipleNeedles(float spawnDelay, int spawnCount, Vector2 currentPosition)
+    private IEnumerator SpawnMultipleNeedles(float spawnDelay, int spawnCount, Vector2 currentPosition, float? overrideDisperse = null)
     {
         for (var i = 0; i < spawnCount; i++)
         {
-            SpawnNeedle(currentPosition, gunDisperse);
+            SpawnNeedle(currentPosition, overrideDisperse ?? gunDisperse);
             yield return new WaitForSeconds(spawnDelay);
         }
     }

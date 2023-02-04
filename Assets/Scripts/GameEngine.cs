@@ -12,8 +12,11 @@ namespace DefaultNamespace
         [Min(1)]
         [SerializeField]
         private int scoreIncrement = 1;
+        
         public static string Name { get; private set; }
+        
         public static string WrongName { get; private set; }
+        
         [SerializeField]
         private int fireRate = 10;
 

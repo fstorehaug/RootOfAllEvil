@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopItems:
-  - cost: 500
+  - cost: 5
     name: Soul harvester
     description: Doubles soul energy gain
     image: {fileID: 21300000, guid: 46b0bf5d00b5d4c878c492ab5ac1393c, type: 3}
@@ -65,7 +65,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     isEnabled: 1
-  - cost: 5000
+    priceMultiplier: 4
+    isOneTime: 0
+  - cost: 20
     name: Soul reaver
     description: Triples soul energy gain
     image: {fileID: 21300000, guid: 3cd1344c8d0954f52b2f8ac53b088cf4, type: 3}
@@ -85,7 +87,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     isEnabled: 1
-  - cost: 50000
+    priceMultiplier: 4
+    isOneTime: 0
+  - cost: 200
     name: Needle minigun
     description: You fire multiple needles
     image: {fileID: 21300000, guid: 245132e98b92d45379ff23bd68a1f088, type: 3}
@@ -105,7 +109,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     isEnabled: 1
-  - cost: 500000
+    priceMultiplier: 4
+    isOneTime: 1
+  - cost: 1000
     name: Shneedle gun
     description: You fire multiple needles
     image: {fileID: 21300000, guid: 04eba1f8291494adb917bab7d1fbb1b4, type: 3}
@@ -125,3 +131,5 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     isEnabled: 1
+    priceMultiplier: 4
+    isOneTime: 1
