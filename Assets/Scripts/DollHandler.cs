@@ -1,5 +1,4 @@
 using DefaultNamespace;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
@@ -18,15 +17,20 @@ public class DollHandler : MonoBehaviour
     private GameObject needlePrefab;
 
     [SerializeField]
-    private float needleStartYOffset = -20;
+    private float needleStartOffset = 0;
 
     private ObjectPool<GameObject> needlePull;
     private Image buttonImage;
+    private Vector2 dollPosition;
+    
 
     private void Start()
     {
         buttonImage = GetComponent<Image>();
         needlePull = new ObjectPool<GameObject>(CreateNeedle, defaultCapacity: 20);
+
+        var imagePosOnCanvas = buttonImage.transform.position;
+        dollPosition = new Vector2(imagePosOnCanvas.x, imagePosOnCanvas.y);
     }
 
     private void Update()
@@ -34,7 +38,7 @@ public class DollHandler : MonoBehaviour
         buttonImage.alphaHitTestMinimumThreshold = alphaTreshold;
     }
 
-    private GameObject CreateNeedle() => Instantiate(needlePrefab, transform); 
+    private GameObject CreateNeedle() => Instantiate(needlePrefab, transform.parent); 
     
     public void OnClick()
     {
@@ -42,8 +46,9 @@ public class DollHandler : MonoBehaviour
         
         var newNeedle = needlePull.Get();
         var mousePosition = Mouse.current.position.ReadValue();
-        newNeedle.transform.position = mousePosition + new Vector2(0, needleStartYOffset);
-        
-        
+
+        var needleVector = mousePosition - dollPosition;
+        newNeedle.transform.right = needleVector;
+        newNeedle.GetComponent<NeedleHandler>().SetTargetPosition(mousePosition);
     }
 }
