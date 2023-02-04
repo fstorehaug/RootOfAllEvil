@@ -37,6 +37,13 @@ public class StoryManager : MonoBehaviour
         _activeStory.OnStorryCompleete += OnStoryComplete;
     }
 
+
+    private void WassupMan()
+    {
+        Debug.log("Hey Dude");
+
+    }
+
     public void ProgressStorry(InputAction.CallbackContext context)
     {
         _activeStory.ProgresStory();
