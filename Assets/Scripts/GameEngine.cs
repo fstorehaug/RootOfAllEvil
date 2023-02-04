@@ -12,7 +12,8 @@ namespace DefaultNamespace
         [Min(1)]
         [SerializeField]
         private int scoreIncrement = 1;
-        
+        public static string Name { get; private set; }
+
         public int Score => score;
 
         private void Start()
@@ -28,6 +29,11 @@ namespace DefaultNamespace
         public void SetIncrement(int scoreIncrement)
         {
             this.scoreIncrement = scoreIncrement;
+        }
+
+        public static void SetName(string name)
+        {
+            Name = name;
         }
     }
 }
