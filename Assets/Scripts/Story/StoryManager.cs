@@ -29,7 +29,7 @@ public class StoryManager : MonoBehaviour
     {
         _gameCanvas.SetActive(false);
         _activeStory = _storyCanvases[storyIndex++];
-        _activeStory.RunStory(0);
+        _activeStory.RunStoryPanel(0);
         _activeStory.OnStorryCompleete += OnStoryComplete;
     }
 
