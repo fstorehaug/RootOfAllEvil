@@ -784,5 +784,9 @@ PrefabInstance:
       propertyPath: alphaTreshold
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8779261393816471707, guid: 9e40eef5a48b945ac92c1122e1dae16b, type: 3}
+      propertyPath: needleStartYOffset
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e40eef5a48b945ac92c1122e1dae16b, type: 3}
