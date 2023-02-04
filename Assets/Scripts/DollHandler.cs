@@ -30,6 +30,8 @@ public class DollHandler : MonoBehaviour
     
     private ObjectPool<GameObject> needlePull;
     private Image buttonImage;
+    
+    private Vector2 MousePosition => Mouse.current.position.ReadValue();
     private Vector2 dollPosition;
     
     private void Start()
@@ -46,7 +48,9 @@ public class DollHandler : MonoBehaviour
         buttonImage.alphaHitTestMinimumThreshold = hitTestAlphaTreshold;
     }
 
-    private GameObject CreateNeedle() => Instantiate(needlePrefab, transform.parent); 
+    private GameObject CreateNeedle() => Instantiate(needlePrefab, transform.parent);
+
+    private float MinigunDelay => (1f / gameEngine.FireRate) * minigunDelay;
     
     public void OnClick()
     {
@@ -58,42 +62,68 @@ public class DollHandler : MonoBehaviour
 
         if (gameEngine.IsShotgunMode)
         {
-            
+            ShotgunNeedles();
             return;
         }
         
-        SpawnNeedle();
+        SpawnNeedle(MousePosition);
     }
 
     private void MinigunNeedles()
     {
-        StartCoroutine( SpawnMultipleNeedles((1f / gameEngine.FireRate) * minigunDelay, gameEngine.FireRate));
+        var mousePositionAtShot = MousePosition;
+        
+        if (gameEngine.IsShotgunMode)
+        {
+            StartCoroutine(MinigunShotgun(mousePositionAtShot));
+            return;
+        }
+
+        StartCoroutine( SpawnMultipleNeedles(MinigunDelay, gameEngine.FireRate, mousePositionAtShot));
     }
 
-    private IEnumerator SpawnMultipleNeedles(float spawnDelay, int spawnCount)
+    private IEnumerator MinigunShotgun(Vector2 mousePosition)
+    {
+        for (var i = 0; i < gameEngine.FireRate; i++)
+        {
+            ShotgunNeedles(mousePosition);
+            yield return new WaitForSeconds(MinigunDelay);
+        }
+    }
+
+    private void ShotgunNeedles(Vector2 mousePos)
+    {
+        StartCoroutine( SpawnMultipleNeedles(0.001f, gameEngine.ShotgunNeedlesCount, mousePos));
+    }
+    
+    private void ShotgunNeedles()
+    {
+        StartCoroutine( SpawnMultipleNeedles(0.001f, gameEngine.ShotgunNeedlesCount, MousePosition));
+    }
+
+    private IEnumerator SpawnMultipleNeedles(float spawnDelay, int spawnCount, Vector2 currentPosition)
     {
         for (var i = 0; i < spawnCount; i++)
         {
-            SpawnNeedle(gunDisperse);
+            SpawnNeedle(currentPosition, gunDisperse);
             yield return new WaitForSeconds(spawnDelay);
         }
     }
 
-    private void SpawnNeedle(float disperse = 0f)
+    private void SpawnNeedle(Vector2 atPosition, float disperse = 0f)
     {
         gameEngine.AddScore();
         
         var newNeedle = needlePull.Get();
-        var mousePosition = Mouse.current.position.ReadValue();
-
+        
         if (disperse > 0f)
         {
-            mousePosition += Random.insideUnitCircle * disperse;
+            atPosition += Random.insideUnitCircle * disperse;
         }
 
-        var needleVector = mousePosition - dollPosition;
+        var needleVector = atPosition - dollPosition;
         newNeedle.transform.right = needleVector;
-        newNeedle.transform.position = mousePosition + (needleStartOffset * needleVector);
-        newNeedle.GetComponent<NeedleHandler>().SetTargetPosition(mousePosition);
+        newNeedle.transform.position = atPosition + (needleStartOffset * needleVector);
+        newNeedle.GetComponent<NeedleHandler>().SetTargetPosition(atPosition);
     }
 }

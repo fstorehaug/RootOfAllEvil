@@ -5,9 +5,9 @@ namespace DefaultNamespace
 {
     [Serializable]
     public class GameEngine : MonoBehaviour
-    {
+    {   
         [SerializeField]
-        private int score;
+        private long score;
 
         [Min(1)]
         [SerializeField]
@@ -15,24 +15,31 @@ namespace DefaultNamespace
         public static string Name { get; private set; }
 
         [SerializeField]
-        private int fireRate;
+        private int fireRate = 10;
 
-        [SerializeField] private bool isShotgunMode;
-        [SerializeField] private bool isMinigunMode;
+        private int shotgunNeedlesCount = 8;
         
-        public int Score => score;
+        [SerializeField] 
+        private bool isShotgunMode;
+        
+        [SerializeField] 
+        private bool isMinigunMode;
+
+        public long Score => score;
 
         public bool IsShotgunMode => isShotgunMode;
 
         public bool IsMinigunMode => isMinigunMode;
 
         public int FireRate => fireRate;
+
+        public int ShotgunNeedlesCount => shotgunNeedlesCount; 
         
         private void Start()
         {
             DontDestroyOnLoad(this);
         }
-
+        
         public void AddScore()
         {
             score += scoreIncrement;
@@ -43,14 +50,35 @@ namespace DefaultNamespace
             this.scoreIncrement = scoreIncrement;
         }
 
-        public void MakeMultiplier(int multiplier)
+        public void SetSoulMultiplier(int multiplier)
         {
             this.scoreIncrement *= multiplier;
+        }
+
+        public void SetMinigunMode()
+        {
+            isMinigunMode = true;
+        }
+        
+        public void SetShotgunMode()
+        {
+            isShotgunMode = true;
         }
 
         public static void SetName(string name)
         {
             Name = name;
+        }
+
+        public bool TrySpend(int price)
+        {
+            if (price > score)
+            {
+                return false;
+            }
+
+            score -= price;
+            return true;
         }
     }
 }

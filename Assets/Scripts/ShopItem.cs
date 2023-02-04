@@ -7,6 +7,8 @@ namespace DefaultNamespace
     [Serializable]
     public class ShopItem
     {
+        private ShopManager shopManager;
+        
         [SerializeField]
         private int cost = 100;
 
@@ -17,6 +19,9 @@ namespace DefaultNamespace
         private string description;
 
         [SerializeField]
+        private Sprite image;
+        
+        [SerializeField]
         private UnityEvent onBuy;
 
         [SerializeField]
@@ -24,7 +29,32 @@ namespace DefaultNamespace
 
         public bool IsBought { get; private set; }
 
-        public void Buy()
+        public int Cost => cost;
+
+        public string Name => name;
+
+        public string Description => description;
+
+        public bool IsAvailable => shopManager.CheckAvalability(this);
+        
+        public bool IsEnabled => isEnabled;
+
+        public Sprite Image => image;
+
+        public void SetShopManager(ShopManager shopManager)
+        {
+            this.shopManager = shopManager;
+        }
+
+        public void TryBuy()
+        {
+            if (shopManager.TryBuyItem(this))
+            {
+                Buy();
+            }
+        }
+
+        private void Buy()
         {
             onBuy?.Invoke();
             IsBought = true;
