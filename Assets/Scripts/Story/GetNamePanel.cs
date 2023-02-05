@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class GetNamePanel : StoryPanel
 {
-    private string _nameString = "Carl";
+    [SerializeField]
+    TMPro.TMP_Text TMPName;
+    [SerializeField]
+    TMPro.TMP_InputField InputField;
+
+    private void Awake()
+    {
+        InputField.Select();
+    }
 
     public override bool ProgressStorry()
     {
-        DefaultNamespace.GameEngine.SetName(_nameString == ""? "Carl" : _nameString);
+        string name = TMPName.text.Trim((char)8203);
+   
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            name = "carl";
+        }
+        GameState.GameStateInstance.SetPlayerName(name);
         base.ProgressStorry();
         return true;
     }
 
-    public void UpdateName(string name) 
+    public override void StartStory()
     {
-        _nameString = name;    
+        base.StartStory();
+        InputField.Select();
     }
+
+
+
+
 
 }

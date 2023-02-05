@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class WrongNamePanel : StoryPanel
@@ -8,12 +9,15 @@ public class WrongNamePanel : StoryPanel
     private Dictionary<char, string> replacements = new Dictionary<char, string>();
     [SerializeField]
     private TMPro.TMP_Text text;
-    
-    private void OnEnable()
-    {
-        text.text = MessupName(DefaultNamespace.GameEngine.Name);
-    }
 
+    public override void StartStory()
+    {
+        PopulateStringDict();
+        string wrongName = MessupName(GameState.GameStateInstance.PlayerName.ToLower()).ToUpper();
+        text.text = wrongName;
+        GameState.GameStateInstance.SetPlayerName(wrongName);
+        base.StartStory();
+    }
     private string MessupName(string originalName) 
     {
         string wrongName = "";
@@ -23,23 +27,24 @@ public class WrongNamePanel : StoryPanel
             if (replacements.ContainsKey(originalName[i]))
             {
                 wrongName = originalName;
-                string tochange = wrongName.Remove(i, 1);
-                wrongName.Insert(i, replacements[tochange[0]]);
-                return wrongName;  
+                string toChange = wrongName[i].ToString();
+                Regex reg = new Regex(Regex.Escape(toChange));
+                return reg.Replace(wrongName, replacements[toChange[0]], 1);
             }
         }
 
-        if (name.Length == 1) 
+        if (originalName.Length == 1) 
         {
             return originalName + "-ito";
         }
 
         bool onlyOneChar = true;
-        for (int i = 0; i<name.Length; i++)
+        for (int i = 0; i < originalName.Length-1; i++)
         {
             if (originalName[i] != originalName[i + 1])
             {
                 onlyOneChar = false;
+                break;
             }
         }
 
@@ -50,9 +55,14 @@ public class WrongNamePanel : StoryPanel
 
         int swappos = (int)(Random.Range(0, originalName.Length - 1));
 
-        string removedLetter = originalName.Remove(swappos, 1);
+        char removedLetter = originalName[swappos];
+        if (removedLetter == originalName[swappos + 1])
+        {
+            return "RootMan";
+        }
+        originalName.Remove(swappos, swappos + 1);
         wrongName = originalName;
-        wrongName.Insert(swappos + 1, removedLetter);
+        wrongName.Insert(swappos + 1, removedLetter.ToString());
 
         return wrongName;
 
@@ -63,7 +73,7 @@ public class WrongNamePanel : StoryPanel
     {
         replacements.Add('c', "k");
         replacements.Add('k', "c");
-        replacements.Add('H', "");
+        replacements.Add('H', " ");
         replacements.Add('w', "wh");
         replacements.Add('i', "ee");
         replacements.Add('e', "a");

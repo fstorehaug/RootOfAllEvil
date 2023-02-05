@@ -14,25 +14,28 @@ public class StoryCanvas : MonoBehaviour
 
     public void ProgresStory()
     {
-        if (_storyIndex >= _storyPanels.Length)
-        {
-            OnStorryEnd();
-            return;
-        }
-
         _activeStoryPanel = _storyPanels[_storyIndex];
         bool panelFinished = _activeStoryPanel.ProgressStorry();
 
         if (panelFinished)
         {
-            RunStory(_storyIndex);
-        }
+            _storyIndex++;
 
-        _storyIndex++;
+            if (_storyIndex >= _storyPanels.Length)
+            {
+                OnStorryEnd();
+            }
+
+            RunStoryPanel(_storyIndex);
+        }
     }
 
-    public void RunStory(int index)
+    public void RunStoryPanel(int index)
     {
+        foreach(StoryPanel panel in _storyPanels)
+        {
+            panel.gameObject.SetActive(false);
+        }
         this.gameObject.SetActive(true);
         _storyPanels[_storyIndex].StartStory();
     }
