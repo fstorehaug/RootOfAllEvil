@@ -194,8 +194,8 @@ MonoBehaviour:
   descriptionText: {fileID: 8388326211872017191}
   costText: {fileID: 5615834326793215811}
   itemPicture: {fileID: 1278250841323522198}
-  availableColor: {r: 1, g: 1, b: 1, a: 0}
-  unavailableMaterial: {r: 0.9622642, g: 0, b: 0, a: 0}
+  availableColor: {r: 1, g: 1, b: 1, a: 1}
+  unavailableMaterial: {r: 0.9622642, g: 0, b: 0, a: 1}
 --- !u!114 &469424619202416752
 MonoBehaviour:
   m_ObjectHideFlags: 0

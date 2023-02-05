@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7ba851f9a348f2b3b2bfbc712dc858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSpawner: {fileID: 0}
   score: 0
   scoreIncrement: 1
   fireRate: 10
@@ -516,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3411619806335387161, guid: d001372b008464c418744b3f1b286f8d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3901139576242809342, guid: d001372b008464c418744b3f1b286f8d, type: 3}
       propertyPath: _storyPanels.Array.data[1]
@@ -919,6 +920,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1639665406452435468, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537147130783925680, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8707438811678511084, guid: 3bf3f45fa23d94aabaf775c1dd99f179, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1115,10 +1124,6 @@ PrefabInstance:
     - target: {fileID: 8779261393816471707, guid: 9e40eef5a48b945ac92c1122e1dae16b, type: 3}
       propertyPath: alphaTreshold
       value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8779261393816471707, guid: 9e40eef5a48b945ac92c1122e1dae16b, type: 3}
-      propertyPath: needleStartOffset
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8779261393816471707, guid: 9e40eef5a48b945ac92c1122e1dae16b, type: 3}
       propertyPath: needleStartYOffset

@@ -11,15 +11,12 @@ namespace DefaultNamespace
 
         [SerializeField]
         private float progressSpeed = 0.5f;
-        
-        [SerializeField]
-        private float speed = 5;
 
         [Min(0f)]
         [SerializeField] private float deadProgress = 0.3f;
 
         [SerializeField]
-        private float step = 0.5f;
+        private float needleSpeed = 100f;
         
         [SerializeField] private float fadeTimeDelaySeconds = 3f;
         [SerializeField] private float fadeTimeDurationSeconds = 1f;
@@ -36,7 +33,7 @@ namespace DefaultNamespace
                 return;
             }
 
-            transform.position = Vector3.Lerp(transform.position, targetPosition, step * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, needleSpeed * Time.deltaTime);
             
             if (needleImage.fillAmount <= deadProgress)
             {

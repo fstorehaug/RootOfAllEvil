@@ -8,6 +8,8 @@ namespace DefaultNamespace
     public class ShopItem
     {
         private ShopManager shopManager;
+        private int puchaseCounter = 1;
+        private int initialCost;
         
         [SerializeField]
         private int cost = 100;
@@ -26,7 +28,14 @@ namespace DefaultNamespace
 
         [SerializeField]
         private bool isEnabled = true;
+        
+        [SerializeField] 
+        private float priceMultiplier = 4;
 
+        [SerializeField] private bool isOneTime = false;
+
+        public int PurchaseCounter => puchaseCounter;
+        
         public bool IsBought { get; private set; }
 
         public int Cost => cost;
@@ -43,6 +52,7 @@ namespace DefaultNamespace
 
         public void SetShopManager(ShopManager shopManager)
         {
+            initialCost = cost;
             this.shopManager = shopManager;
         }
 
@@ -57,7 +67,16 @@ namespace DefaultNamespace
         private void Buy()
         {
             onBuy?.Invoke();
-            IsBought = true;
+            IncreasePrice();
+            if (isOneTime)
+            {
+                IsBought = true;
+            }
+        }
+
+        private void IncreasePrice()
+        {
+            cost = initialCost * (int)Math.Pow(priceMultiplier, puchaseCounter++);
         }
     }
 }

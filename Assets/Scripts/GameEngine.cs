@@ -1,19 +1,26 @@
 using System;
+using DefaultNamespace.Ghosts;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     [Serializable]
     public class GameEngine : MonoBehaviour
-    {   
+    {
+        [SerializeField]
+        private GhostSpawner ghostSpawner;
+        
         [SerializeField]
         private long score;
 
         [Min(1)]
         [SerializeField]
         private int scoreIncrement = 1;
+        
         public static string Name { get; private set; }
+        
         public static string WrongName { get; private set; }
+        
         [SerializeField]
         private int fireRate = 10;
 
@@ -81,10 +88,14 @@ namespace DefaultNamespace
             return true;
         }
 
+        public void SpawnGhost()
+        {
+            
+        }
+        
         public static void SetWrongName(string wrongName)
         {
             WrongName = wrongName;
         }
-
     }
 }
