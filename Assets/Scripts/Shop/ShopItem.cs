@@ -38,7 +38,7 @@ namespace DefaultNamespace
         
         public bool IsBought { get; private set; }
 
-        public int Cost => cost;
+        public int Cost => shopManager.IsCheatMode ? 0 : cost;
 
         public string Name => name;
 

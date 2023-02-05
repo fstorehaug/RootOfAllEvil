@@ -7,7 +7,6 @@ namespace DefaultNamespace
     [Serializable]
     public class GameEngine : MonoBehaviour
     {
-        [SerializeField]
         private GhostSpawner ghostSpawner;
         
         [SerializeField]
@@ -41,6 +40,11 @@ namespace DefaultNamespace
         public int FireRate => fireRate;
 
         public int ShotgunNeedlesCount => shotgunNeedlesCount;
+
+        private void Start()
+        {
+            ghostSpawner = FindObjectOfType<GhostSpawner>();
+        }
 
         public void AddScore()
         {
@@ -83,10 +87,9 @@ namespace DefaultNamespace
             return true;
         }
 
-        public void SpawnGhost()
-        {
-            
-        }
+        public void SpawnGhost() => ghostSpawner.SpawnGhost();
+
+        public void UpgradeGhost() => ghostSpawner.UpgradeGhost();
         
         public static void SetWrongName(string wrongName)
         {
