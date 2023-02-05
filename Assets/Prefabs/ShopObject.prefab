@@ -133,7 +133,7 @@ MonoBehaviour:
           m_CallState: 2
     isEnabled: 1
     priceMultiplier: 4
-    isOneTime: 1
+    isOneTime: 0
   - cost: 20000
     name: Vodoo Ghost Upgrade
     description: Ghosts need more power!
@@ -155,4 +155,4 @@ MonoBehaviour:
           m_CallState: 2
     isEnabled: 1
     priceMultiplier: 4
-    isOneTime: 1
+    isOneTime: 0

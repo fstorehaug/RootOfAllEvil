@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expandedTop: 180
-  collapsedTop: 950
+  collapsedSize: 120
   expandCollapseDuration: 10
   rectTransform: {fileID: 3762470082300013124}
 --- !u!1 &3005378688730019248
