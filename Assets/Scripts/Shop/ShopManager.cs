@@ -10,7 +10,6 @@ namespace DefaultNamespace
         private void Start()
         {
             gameEngine = FindObjectOfType<GameEngine>();
-            DontDestroyOnLoad(this);
             
             shopItems.ForEach(si => si.SetShopManager(this));
         }
