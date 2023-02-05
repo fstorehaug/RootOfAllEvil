@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,6 +7,9 @@ namespace DefaultNamespace.Ghosts
     {
         private ObjectPool<GameObject> ghostsPool;
 
+        [SerializeField]
+        private float needleFireRate = 1f;
+        
         [SerializeField]
         private GameObject ghostPrefab;
         
@@ -19,18 +21,32 @@ namespace DefaultNamespace.Ghosts
         
         [SerializeField]
         private Transform ghostSpawnLocation;
-        
+
+        [SerializeField]
+        private NeedleSpawner needleSpawner;
+
+        public float NeedleNeedleFireRate => needleFireRate;
+
         private void Start()
         {
             ghostsPool = new ObjectPool<GameObject>(CreateGhost);
         }
 
-        private GameObject CreateGhost() => Instantiate(ghostPrefab, ghostParent);
+        private GameObject CreateGhost()
+        {
+            var ghost = Instantiate(ghostPrefab, ghostParent);
+            var ghostController = ghost.GetComponent<GhostController>();
+            ghostController.NeedleSpawner = needleSpawner;
+            ghostController.GhostSpawner = this;
+            return ghost;
+        }
 
         public void SpawnGhost()
         {
             var ghost = ghostsPool.Get();
             ghost.transform.position = ghostSpawnLocation.transform.position;
+            var ghostController = ghost.GetComponent<GhostController>();
+            ghostController.Target = ghostTarget;
         }
     }
 }

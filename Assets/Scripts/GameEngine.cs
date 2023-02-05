@@ -36,13 +36,8 @@ namespace DefaultNamespace
 
         public int FireRate => fireRate;
 
-        public int ShotgunNeedlesCount => shotgunNeedlesCount; 
-        
-        private void Start()
-        {
-            DontDestroyOnLoad(this);
-        }
-        
+        public int ShotgunNeedlesCount => shotgunNeedlesCount;
+
         public void AddScore()
         {
             score += scoreIncrement;
