@@ -50,11 +50,6 @@ public class VoodooButton : MonoBehaviour
         
     }
 
-    public void SetDefaultImage()
-    {
-        _button.sprite = buttonImage;
-    }
-
     public IEnumerator ReleaseVoodooPower()
     {
         float time = 0;

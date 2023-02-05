@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,21 +5,20 @@ namespace DefaultNamespace
 {
     public class ExpanderControl : MonoBehaviour
     {
-        [SerializeField]
-        private float expandedTop = 120;
+        [SerializeField] private float expandedTop = 120;
 
-        [SerializeField]
-        private float collapsedSize = 120;
+        [SerializeField] private float collapsedSize = 120;
 
-        [SerializeField]
-        private float expandCollapseDuration = 50;
+        [SerializeField] private float expandCollapseDuration = 50;
 
-        [SerializeField]
-        private RectTransform rectTransform;
+        [SerializeField] private RectTransform rectTransform;
 
         private bool isExpanded;
 
-        private void Start() => SetTop(-CollapsedTop);
+        private void Start()
+        {
+            SetTop(-CollapsedTop);
+        }
 
         private void SetTop(float value)
         {
