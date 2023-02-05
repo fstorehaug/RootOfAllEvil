@@ -22,7 +22,7 @@ public class GetNamePanel : StoryPanel
         {
             name = "carl";
         }
-        DefaultNamespace.GameEngine.SetName(name);
+        GameState.GameStateInstance.SetPlayerName(name);
         base.ProgressStorry();
         return true;
     }

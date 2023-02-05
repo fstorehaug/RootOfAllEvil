@@ -17,10 +17,6 @@ namespace DefaultNamespace
         [SerializeField]
         private int scoreIncrement = 1;
         
-        public static string Name { get; private set; }
-        
-        public static string WrongName { get; private set; }
-        
         [SerializeField]
         private int fireRate = 10;
 
@@ -72,11 +68,6 @@ namespace DefaultNamespace
             isShotgunMode = true;
         }
 
-        public static void SetName(string name)
-        {
-            Name = name;
-        }
-
         public bool TrySpend(int price)
         {
             if (price > score)
@@ -91,11 +82,6 @@ namespace DefaultNamespace
         public void SpawnGhost()
         {
             
-        }
-        
-        public static void SetWrongName(string wrongName)
-        {
-            WrongName = wrongName;
         }
     }
 }
