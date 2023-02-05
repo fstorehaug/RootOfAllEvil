@@ -13,9 +13,9 @@ public class WrongNamePanel : StoryPanel
     public override void StartStory()
     {
         PopulateStringDict();
-        string wrongName = MessupName(DefaultNamespace.GameEngine.Name.ToLower()).ToUpper();
+        string wrongName = MessupName(GameState.GameStateInstance.PlayerName.ToLower()).ToUpper();
         text.text = wrongName;
-        DefaultNamespace.GameEngine.SetWrongName(wrongName);
+        GameState.GameStateInstance.SetPlayerName(wrongName);
         base.StartStory();
     }
     private string MessupName(string originalName) 
