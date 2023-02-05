@@ -17,9 +17,6 @@ namespace DefaultNamespace.Ghosts
         [SerializeField]
         private float targetLocationChangeDelay = 5f;
 
-        [SerializeField]
-        private Vector2 randomLocationMeasures = new (100, 100);
-
         [SerializeField] 
         private GameObject cronePrefab;
 
@@ -31,7 +28,9 @@ namespace DefaultNamespace.Ghosts
 
         private int ghostUpgrades;
         private Vector2 currentTargetLocation;
-
+        
+        private Vector2 randomLocationMeasures => new (Screen.width / 2f, Screen.height / 2f);
+        
         public int GhostUpgrades
         {
             get => ghostUpgrades;
@@ -57,9 +56,12 @@ namespace DefaultNamespace.Ghosts
         {
             for (var i = 0; i < diff; i++)
             {
-                var location = cronePlacementOffset + croneDisperse * Random.insideUnitCircle;
-                var crone = Instantiate(cronePrefab);
-                crone.transform.position = location;
+                var disperse = croneDisperse * Random.insideUnitCircle;
+                var location = cronePlacementOffset;
+                location.y += disperse.y * 2;
+                location.x += disperse.x / 2;
+                var crone = Instantiate(cronePrefab, transform);
+                crone.transform.localPosition = location;
             }
         }
 
@@ -70,7 +72,8 @@ namespace DefaultNamespace.Ghosts
         public GhostSpawner GhostSpawner { get; set; }
 
         public Vector2 RandomTargetLocationToMove => 
-            new Vector2(Random.value * randomLocationMeasures.x, Random.value * randomLocationMeasures.y);
+            new Vector3(Random.Range(-1f, 1f) * randomLocationMeasures.x, Random.Range(-1f, 1f) * randomLocationMeasures.y, 0) + 
+            transform.parent.position;
 
         private void Update()
         {
@@ -95,8 +98,8 @@ namespace DefaultNamespace.Ghosts
         {
             while (true)
             {
-                yield return new WaitForSeconds(baseNeedleDelaySeconds / (needleFireRate * Mathf.Pow(ghostUpgrades, 2)));
-                NeedleSpawner.SpawnNeedle(Target.position);
+                yield return new WaitForSeconds(baseNeedleDelaySeconds / (needleFireRate * Mathf.Pow(2, ghostUpgrades)));
+                NeedleSpawner.SpawnNeedle(Target.position, 20f);
             }
         }
     }

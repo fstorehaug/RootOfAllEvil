@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ namespace DefaultNamespace
 {
     public class NeedleHandler : MonoBehaviour
     {
+        private static int activeCopies;
+        
         [SerializeField]
         private Image needleImage;
 
@@ -18,13 +21,23 @@ namespace DefaultNamespace
         [SerializeField]
         private float needleSpeed = 100f;
         
-        [SerializeField] private float fadeTimeDelaySeconds = 3f;
         [SerializeField] private float fadeTimeDurationSeconds = 1f;
-
+        
         private bool isFading;
         private Vector3 targetPosition;
+
+        private float fadeTimeDelaySeconds => 3f / Math.Max(activeCopies, 1f) * 0.2f;
         
-        private void OnEnable() => StartCoroutine( StartFade());
+        private void OnEnable()
+        {
+            StartCoroutine( StartFade());
+            activeCopies++;
+        }
+
+        private void OnDisable()
+        {
+            activeCopies--;
+        }
 
         private void Update()
         {

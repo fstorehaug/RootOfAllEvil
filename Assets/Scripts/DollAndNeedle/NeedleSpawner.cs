@@ -22,7 +22,7 @@ namespace DefaultNamespace
         
         private void Start()
         {
-            needlePull = new ObjectPool<GameObject>(CreateNeedle, defaultCapacity: 20);
+            needlePull = new ObjectPool<GameObject>(CreateNeedle, defaultCapacity: 10000);
             gameEngine = FindObjectOfType<GameEngine>();
             var imagePosOnCanvas = targetTransform.position;
             dollPosition = new Vector2(imagePosOnCanvas.x, imagePosOnCanvas.y);
