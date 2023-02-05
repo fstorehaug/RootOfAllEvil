@@ -8,9 +8,6 @@ namespace DefaultNamespace.Ghosts
         private ObjectPool<GameObject> ghostsPool;
 
         [SerializeField]
-        private float needleFireRate = 1f;
-        
-        [SerializeField]
         private GameObject ghostPrefab;
         
         [SerializeField]
@@ -25,8 +22,11 @@ namespace DefaultNamespace.Ghosts
         [SerializeField]
         private NeedleSpawner needleSpawner;
 
-        public float NeedleNeedleFireRate => needleFireRate;
+        [SerializeField]
+        private int ghostUpgrades;
 
+        public int GhostUpgrades => ghostUpgrades;
+        
         private void Start()
         {
             ghostsPool = new ObjectPool<GameObject>(CreateGhost);
@@ -48,5 +48,7 @@ namespace DefaultNamespace.Ghosts
             var ghostController = ghost.GetComponent<GhostController>();
             ghostController.Target = ghostTarget;
         }
+
+        public void UpgradeGhost() => ghostUpgrades++;
     }
 }

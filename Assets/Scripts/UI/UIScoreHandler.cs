@@ -18,7 +18,7 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            scoreText.SetText($"Soul Energy : {gameEngine.Score}");
+            scoreText.SetText($"Soul Power : {gameEngine.Score}");
         }
     }
 }

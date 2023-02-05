@@ -6,6 +6,9 @@ namespace DefaultNamespace.Ghosts
     public class GhostController : MonoBehaviour
     {
         [SerializeField]
+        private float needleFireRate = 1f;
+        
+        [SerializeField]
         private float baseNeedleDelaySeconds = 3;
         
         [SerializeField]
@@ -15,14 +18,49 @@ namespace DefaultNamespace.Ghosts
         private float targetLocationChangeDelay = 5f;
 
         [SerializeField]
-        private Vector2 randomLocationMeasures = new Vector2(100, 100);
+        private Vector2 randomLocationMeasures = new (100, 100);
 
+        [SerializeField] 
+        private GameObject cronePrefab;
+
+        [SerializeField]
+        private Vector2 cronePlacementOffset;
+
+        [SerializeField] 
+        private float croneDisperse;
+
+        private int ghostUpgrades;
         private Vector2 currentTargetLocation;
-        
+
         private void OnEnable()
         {
             StartCoroutine(ChangeLocation());
             StartCoroutine(FireTheNeedle());
+        }
+
+        public int GhostUpgrades
+        {
+            get => ghostUpgrades;
+            set
+            {
+                if (ghostUpgrades == value)
+                {
+                    return;
+                }
+
+                AddCrones(value - ghostUpgrades);
+                ghostUpgrades = value;
+            }
+        }
+
+        private void AddCrones(int diff)
+        {
+            for (int i = 0; i < diff; i++)
+            {
+                var location = cronePlacementOffset + croneDisperse * Random.insideUnitCircle;
+                var crone = Instantiate(cronePrefab);
+                crone.transform.position = location;
+            }
         }
 
         public Transform Target { get; set; }
@@ -40,6 +78,8 @@ namespace DefaultNamespace.Ghosts
             
             transform.position =
                 Vector3.Lerp(transform.position, currentTargetLocation, Time.deltaTime * flySpeed);
+
+            GhostUpgrades = GhostSpawner.GhostUpgrades;
         }
 
         private IEnumerator ChangeLocation()
@@ -50,7 +90,7 @@ namespace DefaultNamespace.Ghosts
 
         private IEnumerator FireTheNeedle()
         {
-            yield return new WaitForSeconds(baseNeedleDelaySeconds /  GhostSpawner.NeedleNeedleFireRate);
+            yield return new WaitForSeconds(baseNeedleDelaySeconds / (needleFireRate * Mathf.Pow(ghostUpgrades, 2)));
             NeedleSpawner.SpawnNeedle(Target.position);
         }
     }
