@@ -17,7 +17,14 @@ public class AngryFacePanel : StoryPanel
     {
         _onCrashDone += OnCrashEnd;
         SoundManager.Instance.PlayCrashSound(_onCrashDone);
-        wrongNameText.text = GameState.GameStateInstance.WrongPlayerName;
+
+        if (wrongNameText != null)
+        {
+
+             wrongNameText.text = GameState.GameStateInstance.WrongPlayerName;
+
+        }
+
         base.StartStory();
     }
 
