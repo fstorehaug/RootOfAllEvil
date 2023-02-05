@@ -49,6 +49,7 @@ namespace DefaultNamespace
         public void AddScore()
         {
             score += scoreIncrement;
+            GameState.GameStateInstance.AddScore(scoreIncrement);
         }
 
         public void SetIncrement(int scoreIncrement)
