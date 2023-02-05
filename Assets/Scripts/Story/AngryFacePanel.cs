@@ -7,8 +7,11 @@ using UnityEngine.InputSystem;
 public class AngryFacePanel : StoryPanel
 {
     [SerializeField] private TMPro.TMP_Text wrongNameText;
+    [SerializeField] private RectTransform image;
     private UnityAction _onCrashDone;
     private bool hasEnded;
+
+    [SerializeField] private float zoomSpeed;
 
     public override void StartStory()
     {
@@ -23,6 +26,11 @@ public class AngryFacePanel : StoryPanel
         _onCrashDone -= OnCrashEnd;
         hasEnded = true;
         return base.ProgressStorry();
+    }
+
+    public void Update()
+    {
+        image.localScale *= 1+ ( Time.deltaTime * zoomSpeed);
     }
 
     public void OnCrashEnd()

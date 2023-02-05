@@ -6,6 +6,13 @@ public class GetNamePanel : StoryPanel
 {
     [SerializeField]
     TMPro.TMP_Text TMPName;
+    [SerializeField]
+    TMPro.TMP_InputField InputField;
+
+    private void Awake()
+    {
+        InputField.Select();
+    }
 
     public override bool ProgressStorry()
     {
@@ -18,6 +25,12 @@ public class GetNamePanel : StoryPanel
         DefaultNamespace.GameEngine.SetName(name);
         base.ProgressStorry();
         return true;
+    }
+
+    public override void StartStory()
+    {
+        base.StartStory();
+        InputField.Select();
     }
 
 
