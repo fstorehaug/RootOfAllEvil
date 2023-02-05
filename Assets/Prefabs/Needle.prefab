@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 2
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
@@ -91,8 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needleImage: {fileID: 7132547577016428105}
   progressSpeed: 4
-  speed: 800
   deadProgress: 0.5
-  step: 45
+  needleSpeed: 20
   fadeTimeDelaySeconds: 3
   fadeTimeDurationSeconds: 1

@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2311071816598419595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2311071816598419594}
+  - component: {fileID: 2311071816598419597}
+  m_Layer: 0
+  m_Name: ShopObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2311071816598419594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311071816598419595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 584.9473, y: 703.70917, z: -6.823824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2311071816598419597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311071816598419595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f53e4498504ce09547a4997b02e290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItems:
+  - cost: 5
+    name: Soul harvester
+    description: Doubles soul energy gain
+    image: {fileID: 21300000, guid: 46b0bf5d00b5d4c878c492ab5ac1393c, type: 3}
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2311071816598419597}
+          m_TargetAssemblyTypeName: DefaultNamespace.ShopManager, Assembly-CSharp
+          m_MethodName: IncreaseSoulRate
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+    priceMultiplier: 4
+    isOneTime: 0
+  - cost: 200
+    name: Needle minigun
+    description: You fire multiple needles
+    image: {fileID: 21300000, guid: 245132e98b92d45379ff23bd68a1f088, type: 3}
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2311071816598419597}
+          m_TargetAssemblyTypeName: DefaultNamespace.ShopManager, Assembly-CSharp
+          m_MethodName: SetMinigunMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+    priceMultiplier: 4
+    isOneTime: 1
+  - cost: 1000
+    name: Shneedle gun
+    description: You fire multiple needles
+    image: {fileID: 21300000, guid: 04eba1f8291494adb917bab7d1fbb1b4, type: 3}
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2311071816598419597}
+          m_TargetAssemblyTypeName: DefaultNamespace.ShopManager, Assembly-CSharp
+          m_MethodName: SetShotgunMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+    priceMultiplier: 4
+    isOneTime: 1
+  - cost: 20000
+    name: Vodoo Ghost
+    description: Enough power to conjure a spirit to needle your viktim
+    image: {fileID: 21300000, guid: 04eba1f8291494adb917bab7d1fbb1b4, type: 3}
+    onBuy:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2311071816598419597}
+          m_TargetAssemblyTypeName: DefaultNamespace.ShopManager, Assembly-CSharp
+          m_MethodName: SetShotgunMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isEnabled: 1
+    priceMultiplier: 4
+    isOneTime: 1
