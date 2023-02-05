@@ -26,7 +26,7 @@ namespace DefaultNamespace
         private bool isFading;
         private Vector3 targetPosition;
 
-        private float fadeTimeDelaySeconds => 3f / Math.Max(activeCopies, 1f) * 0.2f;
+        private float fadeTimeDelaySeconds => 3f / (Mathf.Max(activeCopies, 1f) * 0.5f);
         
         private void OnEnable()
         {
