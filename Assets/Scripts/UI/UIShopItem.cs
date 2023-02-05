@@ -56,7 +56,6 @@ namespace DefaultNamespace
 
         private void UpdateUIInfo()
         {
-            costText.SetText(dataContext.Cost.ToString());
             itemPicture.sprite = dataContext.Image;
         }
         
