@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8981685765403259156}
   - component: {fileID: 2765699031035741325}
   m_Layer: 5
-  m_Name: NeedleSpawner
+  m_Name: NeedleLayerSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,12 +121,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8779261393806908033}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2765699031035741325
 MonoBehaviour:
@@ -145,6 +145,42 @@ MonoBehaviour:
   minigunDelay: 0.5
   gunDisperse: 20
   targetTransform: {fileID: 8779261393816471704}
+--- !u!1 &8622821037276713141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8563831348927320771}
+  m_Layer: 5
+  m_Name: GhostLayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8563831348927320771
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622821037276713141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8779261393806908033}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8779261393806908032
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,9 +212,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8563831348927320771}
   - {fileID: 5101113098413097222}
-  - {fileID: 8981685765403259156}
   - {fileID: 8779261393816471704}
+  - {fileID: 8981685765403259156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -407,7 +444,7 @@ PrefabInstance:
     - target: {fileID: 3130492829146339127, guid: 865d18c439d22445287df36be249db45, type: 3}
       propertyPath: ghostParent
       value: 
-      objectReference: {fileID: 8779261393806908033}
+      objectReference: {fileID: 8563831348927320771}
     - target: {fileID: 3130492829146339127, guid: 865d18c439d22445287df36be249db45, type: 3}
       propertyPath: ghostPrefab
       value: 
@@ -417,12 +454,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8779261393816471704}
     - target: {fileID: 3130492829146339127, guid: 865d18c439d22445287df36be249db45, type: 3}
+      propertyPath: needleSpawner
+      value: 
+      objectReference: {fileID: 2765699031035741325}
+    - target: {fileID: 3130492829146339127, guid: 865d18c439d22445287df36be249db45, type: 3}
       propertyPath: ghostSpawnLocation
       value: 
       objectReference: {fileID: 8779261393816471704}
     - target: {fileID: 3130492829146339144, guid: 865d18c439d22445287df36be249db45, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3130492829146339144, guid: 865d18c439d22445287df36be249db45, type: 3}
       propertyPath: m_LocalPosition.x

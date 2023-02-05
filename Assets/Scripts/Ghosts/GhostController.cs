@@ -32,12 +32,6 @@ namespace DefaultNamespace.Ghosts
         private int ghostUpgrades;
         private Vector2 currentTargetLocation;
 
-        private void OnEnable()
-        {
-            StartCoroutine(ChangeLocation());
-            StartCoroutine(FireTheNeedle());
-        }
-
         public int GhostUpgrades
         {
             get => ghostUpgrades;
@@ -53,9 +47,15 @@ namespace DefaultNamespace.Ghosts
             }
         }
 
+        public void ActivateKillMode()
+        {
+            StartCoroutine(ChangeLocation());
+            StartCoroutine(FireTheNeedle());
+        }
+
         private void AddCrones(int diff)
         {
-            for (int i = 0; i < diff; i++)
+            for (var i = 0; i < diff; i++)
             {
                 var location = cronePlacementOffset + croneDisperse * Random.insideUnitCircle;
                 var crone = Instantiate(cronePrefab);
@@ -84,14 +84,20 @@ namespace DefaultNamespace.Ghosts
 
         private IEnumerator ChangeLocation()
         {
-            currentTargetLocation = RandomTargetLocationToMove;
-            yield return new WaitForSeconds(targetLocationChangeDelay); 
+            while (true)
+            {
+                currentTargetLocation = RandomTargetLocationToMove;
+                yield return new WaitForSeconds(targetLocationChangeDelay);
+            }
         }
 
         private IEnumerator FireTheNeedle()
         {
-            yield return new WaitForSeconds(baseNeedleDelaySeconds / (needleFireRate * Mathf.Pow(ghostUpgrades, 2)));
-            NeedleSpawner.SpawnNeedle(Target.position);
+            while (true)
+            {
+                yield return new WaitForSeconds(baseNeedleDelaySeconds / (needleFireRate * Mathf.Pow(ghostUpgrades, 2)));
+                NeedleSpawner.SpawnNeedle(Target.position);
+            }
         }
     }
 }

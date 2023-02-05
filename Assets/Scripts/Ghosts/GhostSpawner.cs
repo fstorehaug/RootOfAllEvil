@@ -47,6 +47,7 @@ namespace DefaultNamespace.Ghosts
             ghost.transform.position = ghostSpawnLocation.transform.position;
             var ghostController = ghost.GetComponent<GhostController>();
             ghostController.Target = ghostTarget;
+            ghostController.ActivateKillMode();
         }
 
         public void UpgradeGhost() => ghostUpgrades++;
