@@ -25,6 +25,11 @@ namespace DefaultNamespace
             gameEngine.SetSoulMultiplier(multipler);
         }
 
+        public void SpawnGhost()
+        {
+            gameEngine.SpawnGhost();
+        }
+
         public void SetMinigunMode() => gameEngine.SetMinigunMode();
         
         public void SetShotgunMode() => gameEngine.SetShotgunMode();

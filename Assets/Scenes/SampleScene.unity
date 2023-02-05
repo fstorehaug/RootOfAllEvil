@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7ba851f9a348f2b3b2bfbc712dc858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSpawner: {fileID: 0}
   score: 0
   scoreIncrement: 1
   fireRate: 10
@@ -516,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3411619806335387161, guid: d001372b008464c418744b3f1b286f8d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3901139576242809342, guid: d001372b008464c418744b3f1b286f8d, type: 3}
       propertyPath: _storyPanels.Array.data[1]

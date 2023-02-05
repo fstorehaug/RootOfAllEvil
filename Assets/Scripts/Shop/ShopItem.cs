@@ -7,10 +7,8 @@ namespace DefaultNamespace
     [Serializable]
     public class ShopItem
     {
-        private int puchaseCounter = 1;
-        
         private ShopManager shopManager;
-
+        private int puchaseCounter = 1;
         private int initialCost;
         
         [SerializeField]
@@ -35,6 +33,8 @@ namespace DefaultNamespace
         private float priceMultiplier = 4;
 
         [SerializeField] private bool isOneTime = false;
+
+        public int PurchaseCounter => puchaseCounter;
         
         public bool IsBought { get; private set; }
 
