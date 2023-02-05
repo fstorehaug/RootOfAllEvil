@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f53e4498504ce09547a4997b02e290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheatMode: 1
+  cheatMode: 0
   shopItems:
   - cost: 5
     name: Soul harvester
@@ -143,7 +143,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2311071816598419597}
           m_TargetAssemblyTypeName: DefaultNamespace.ShopManager, Assembly-CSharp
-          m_MethodName: SetShotgunMode
+          m_MethodName: UpgradeGhost
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

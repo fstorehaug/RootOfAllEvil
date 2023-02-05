@@ -61,14 +61,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 46b0bf5d00b5d4c878c492ab5ac1393c, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -89,11 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd5b5446c0a4f30b22f0f73a2e67271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needleFireRate: 1
+  needleFireRate: 1.5
   baseNeedleDelaySeconds: 3
-  flySpeed: 5
+  flySpeed: 1
   targetLocationChangeDelay: 5
-  randomLocationMeasures: {x: 800, y: 800}
+  randomLocationMeasures: {x: 100, y: 200}
   cronePrefab: {fileID: 9091052078869538863, guid: ecdb19a52c4f345b2bbeccc807b34c40, type: 3}
   cronePlacementOffset: {x: 2.5, y: 26.6}
-  croneDisperse: 2
+  croneDisperse: 3

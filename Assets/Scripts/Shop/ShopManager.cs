@@ -30,7 +30,7 @@ namespace DefaultNamespace
 
         public void SpawnGhost() => gameEngine.SpawnGhost();
 
-        public void IncreadseGhostFireRate() => gameEngine.UpgradeGhost();
+        public void UpgradeGhost() => gameEngine.UpgradeGhost();
 
         public void SetMinigunMode() => gameEngine.SetMinigunMode();
         
