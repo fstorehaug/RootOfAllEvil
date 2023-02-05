@@ -89,3 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd5b5446c0a4f30b22f0f73a2e67271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needleFireRate: 1
+  baseNeedleDelaySeconds: 3
+  flySpeed: 5
+  targetLocationChangeDelay: 5
+  randomLocationMeasures: {x: 800, y: 800}
+  cronePrefab: {fileID: 9091052078869538863, guid: ecdb19a52c4f345b2bbeccc807b34c40, type: 3}
+  cronePlacementOffset: {x: 2.5, y: 26.6}
+  croneDisperse: 2

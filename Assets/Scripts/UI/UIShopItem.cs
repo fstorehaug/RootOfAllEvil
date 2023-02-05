@@ -7,13 +7,7 @@ namespace DefaultNamespace
     public class UIShopItem : MonoBehaviour
     {
         private ShopItem dataContext;
-        
-        [SerializeField]
-        private TextMeshProUGUI nameText;
-        
-        [SerializeField]
-        private TextMeshProUGUI descriptionText;
-        
+
         [SerializeField]
         private TextMeshProUGUI costText;
         
@@ -62,8 +56,6 @@ namespace DefaultNamespace
 
         private void UpdateUIInfo()
         {
-            nameText.SetText(dataContext.Name);
-            descriptionText.SetText(dataContext.Description);
             costText.SetText(dataContext.Cost.ToString());
             itemPicture.sprite = dataContext.Image;
         }

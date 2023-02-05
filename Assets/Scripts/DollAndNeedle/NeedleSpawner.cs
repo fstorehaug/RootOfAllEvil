@@ -68,7 +68,7 @@ namespace DefaultNamespace
             newNeedle.GetComponent<NeedleHandler>().SetTargetPosition(atPosition);
         }
         
-        private GameObject CreateNeedle() => Instantiate(needlePrefab, transform.parent);
+        private GameObject CreateNeedle() => Instantiate(needlePrefab, transform);
         
         private IEnumerator MinigunShotgun(Vector2 mousePosition)
         {

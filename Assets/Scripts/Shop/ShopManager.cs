@@ -6,16 +6,20 @@ namespace DefaultNamespace
     public class ShopManager : MonoBehaviour
     {
         private GameEngine gameEngine;
+
+        [SerializeField]
+        private bool cheatMode;
         
         private void Start()
         {
             gameEngine = FindObjectOfType<GameEngine>();
-            
             shopItems.ForEach(si => si.SetShopManager(this));
         }
 
         [SerializeField]
         private List<ShopItem> shopItems;
+
+        public bool IsCheatMode => cheatMode;
         
         public ShopItem[] ShopItems => shopItems.ToArray();
 
@@ -24,10 +28,9 @@ namespace DefaultNamespace
             gameEngine.SetSoulMultiplier(multipler);
         }
 
-        public void SpawnGhost()
-        {
-            gameEngine.SpawnGhost();
-        }
+        public void SpawnGhost() => gameEngine.SpawnGhost();
+
+        public void IncreadseGhostFireRate() => gameEngine.UpgradeGhost();
 
         public void SetMinigunMode() => gameEngine.SetMinigunMode();
         
