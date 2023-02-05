@@ -30,6 +30,10 @@ public class StoryManager : MonoBehaviour
 
     public void RunNextStorry()
     {
+        if (GameState.GameStateInstance.StoryIndex >= _storyCanvases.Length)
+        {
+            return;
+        }
         _gameCanvas.SetActive(false);
         _activeStory = _storyCanvases[GameState.GameStateInstance.StoryIndex];
         _activeStory.RunStoryPanel(0);
@@ -43,7 +47,6 @@ public class StoryManager : MonoBehaviour
 
     public void OnStoryComplete()
     {
-        GameState.GameStateInstance.ProgressStoryIndex();
         this.gameObject.SetActive(false);
         _progressStorryAction.performed -= ProgressStorry;
         _gameCanvas.SetActive(true);
