@@ -660,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1057108270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9110072712482909632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1843,6 +1843,7 @@ MonoBehaviour:
       m_Action: Progress Storry
       m_Flags: 0
     m_Flags: 0
+  shopUI: {fileID: 0}
 --- !u!1 &3495907598613534859
 GameObject:
   m_ObjectHideFlags: 0

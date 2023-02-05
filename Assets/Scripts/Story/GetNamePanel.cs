@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GetNamePanel : StoryPanel
 {
     [SerializeField]
     TMPro.TMP_Text TMPName;
+    
     [SerializeField]
     TMPro.TMP_InputField InputField;
 
-    private void Awake()
+    private void OnEnable()
+    {
+        FocusField();
+    }
+
+    public void FocusField()
     {
         InputField.Select();
+        InputField.ActivateInputField();
     }
 
     public override bool ProgressStorry()
@@ -32,9 +37,4 @@ public class GetNamePanel : StoryPanel
         base.StartStory();
         InputField.Select();
     }
-
-
-
-
-
 }

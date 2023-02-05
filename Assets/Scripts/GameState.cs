@@ -39,7 +39,7 @@ public class GameState
 
     public bool CanProgress()
     {
-        float levelSoulDemand = (Mathf.Pow(1.02f, (float)((StoryIndex ^ StoryIndex))) + (10 ^ StoryIndex) + (1000 * StoryIndex) + StoryIndex + 200);
+        float levelSoulDemand = (Mathf.Pow(1.1f, (float)((StoryIndex ^ StoryIndex))) + (40 ^ StoryIndex) + (5000 * StoryIndex) + StoryIndex + 1000);
         if (currentScore > levelSoulDemand)
         {
             return true;

@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391508310541546057}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &4778581133982667993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +93,6 @@ MonoBehaviour:
   baseNeedleDelaySeconds: 3
   flySpeed: 1
   targetLocationChangeDelay: 5
-  randomLocationMeasures: {x: 100, y: 200}
   cronePrefab: {fileID: 9091052078869538863, guid: ecdb19a52c4f345b2bbeccc807b34c40, type: 3}
   cronePlacementOffset: {x: 2.5, y: 26.6}
   croneDisperse: 3

@@ -20,8 +20,7 @@ public class AngryFacePanel : StoryPanel
 
         if (wrongNameText != null)
         {
-
-             wrongNameText.text = GameState.GameStateInstance.WrongPlayerName;
+            wrongNameText.text = GameState.GameStateInstance.WrongPlayerName;
 
         }
 

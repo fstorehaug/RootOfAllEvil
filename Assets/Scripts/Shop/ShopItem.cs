@@ -38,13 +38,13 @@ namespace DefaultNamespace
         
         public bool IsBought { get; private set; }
 
-        public int Cost => shopManager.IsCheatMode ? 0 : cost;
+        public int Cost => (shopManager?.IsCheatMode ?? false) ? 0 : cost;
 
         public string Name => name;
 
         public string Description => description;
 
-        public bool IsAvailable => shopManager.CheckAvalability(this);
+        public bool IsAvailable => shopManager?.CheckAvalability(this) ?? true;
         
         public bool IsEnabled => isEnabled;
 

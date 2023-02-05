@@ -77,7 +77,7 @@ namespace DefaultNamespace.Ghosts
 
         private void Update()
         {
-            transform.right = Target.position;
+            transform.Rotate(Vector3.forward, Time.deltaTime * Random.Range(20f, 50f));
             
             transform.position =
                 Vector3.Lerp(transform.position, currentTargetLocation, Time.deltaTime * flySpeed);

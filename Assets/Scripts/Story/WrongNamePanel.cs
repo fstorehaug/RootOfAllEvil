@@ -15,7 +15,7 @@ public class WrongNamePanel : StoryPanel
         PopulateStringDict();
         string wrongName = MessupName(GameState.GameStateInstance.PlayerName.ToLower()).ToUpper();
         text.text = wrongName;
-        GameState.GameStateInstance.SetPlayerName(wrongName);
+        GameState.GameStateInstance.SetWrongName(wrongName);
         base.StartStory();
     }
     private string MessupName(string originalName) 

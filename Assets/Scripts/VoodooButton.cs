@@ -58,7 +58,7 @@ public class VoodooButton : MonoBehaviour
         while (time < 1)
         {
             ghost.transform.position += new Vector3(0, 1, 0)*Time.deltaTime*speed;
-            ghost.localScale *= 1.5f;
+            ghost.localScale += 1.5f * Time.deltaTime * ghost.localScale;
             time += Time.deltaTime;
             yield return null;
         }

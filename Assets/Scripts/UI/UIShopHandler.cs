@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -20,7 +21,7 @@ namespace DefaultNamespace
 
         private void CreateUI()
         {
-            foreach (var shopManagerShopItem in shopManager.ShopItems)
+            foreach (var shopManagerShopItem in shopManager.ShopItems.OrderBy(si => si.Cost))
             {
                 var uiItem = Instantiate(itemTemplate, container.transform);
                 uiItem.GetComponent<UIShopItem>().SetDataContext(shopManagerShopItem);

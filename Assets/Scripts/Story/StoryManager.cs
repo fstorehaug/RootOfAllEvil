@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +12,9 @@ public class StoryManager : MonoBehaviour
     [SerializeField]
     public InputAction _progressStorryAction;
 
+    [SerializeField] 
+    private GameObject shopUI;
+    
     private StoryCanvas _activeStory;
 
     public static StoryManager Instance;
@@ -28,10 +29,15 @@ public class StoryManager : MonoBehaviour
         RunNextStorry();
     }
 
+    private void SetActivatated(bool isActive)
+    {
+        _gameCanvas.SetActive(isActive);
+        shopUI.SetActive(isActive);
+    }
+
     public void RunNextStorry()
     {
-        _gameCanvas.SetActive(false);
-
+        SetActivatated(false);
         if (GameState.GameStateInstance.StoryIndex >= _storyCanvases.Length)
         {
             return;
@@ -51,7 +57,7 @@ public class StoryManager : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         _progressStorryAction.performed -= ProgressStorry;
-        _gameCanvas.SetActive(true);
+        SetActivatated(true);
     }
 
     private void OnDestroy()
